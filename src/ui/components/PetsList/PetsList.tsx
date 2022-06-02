@@ -8,12 +8,15 @@ import {
   PetsDescription
 } from './PetsList.style';
 import { Pet } from '../../../data/@types/Pet';
+import { TextService } from '../../../data/services/TextService';
 
 interface PetsListProps {
   pets: Pet[];
 }
 
 export function PetsList({ pets }: PetsListProps) {
+  const maxSize = 250;
+  
   return (
     <List>
       { pets.map(pet => (
@@ -21,7 +24,9 @@ export function PetsList({ pets }: PetsListProps) {
           <PetImage src={pet.imageAddress} alt={pet.name}/>
           <PetInformation>
             <PetsName>{pet.name}</PetsName>
-            <PetsDescription>{pet.history}</PetsDescription>
+            <PetsDescription>
+              {TextService.textLimiter(pet.history, maxSize)}
+            </PetsDescription>
             <Button 
               fullWidth
               variant='contained'

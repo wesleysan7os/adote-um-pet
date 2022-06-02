@@ -23,13 +23,14 @@ export const PetItem = styled('li')`
 export const PetImage = styled('img')`
   width: 100%;
   ${({ theme }) => theme.breakpoints.up('md')} {
-    height: 230px;
+    height: 240px;
   }
 `
 
 export const PetInformation = styled('div')`
   display: flex;
   flex-direction: column;
+  max-height: 240px;
   gap: ${({ theme }) => theme.spacing(2)}
 `
 
@@ -38,6 +39,13 @@ export const PetsName = styled('h2')`
 `
 
 export const PetsDescription = styled("p")`
+  &::first-letter {
+    font-size: 30px;
+    color: ${({ theme }) => theme.palette.primary.main};
+    font-weight: bold;
+    margin-left: 20px;
+  }
   word-break: break-word;
+  text-align: justify;
   margin: 0;
 `;
