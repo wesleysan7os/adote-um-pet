@@ -9,7 +9,13 @@ const Home: NextPage = () => {
   const {
     petsList,
     selectedPet,
-    setSelectedPet
+    setSelectedPet,
+    email,
+    setEmail,
+    monthlyFee,
+    setMonthlyFee,
+    message,
+    setMessage
   } = useIndex();
 
   return (
@@ -32,10 +38,22 @@ const Home: NextPage = () => {
       >
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <TextField label="E-mail" type="text" fullWidth />
+            <TextField
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              label="E-mail"
+              type="text"
+              fullWidth
+            />
           </Grid>
           <Grid item xs={12}>
-            <TextField label="Quantia por mês" type="number" fullWidth />
+            <TextField 
+              value={monthlyFee}
+              onChange={(e) => setMonthlyFee(e.target.value)}
+              label="Quantia por mês" 
+              type="number" 
+              fullWidth 
+            />
           </Grid>
         </Grid>
         <DialogActions sx={{ mt: 5 }}>
@@ -44,7 +62,12 @@ const Home: NextPage = () => {
         </DialogActions>
       </Dialog>
 
-      <Snackbar open={false} message={"aaieoals"} />
+      <Snackbar 
+        open={message.length > 0} 
+        message={message} 
+        autoHideDuration={2500}
+        onClose={() => setMessage('')}
+      />
     </>
   );
 }

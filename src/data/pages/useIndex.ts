@@ -22,9 +22,19 @@ export function useIndex() {
     },
   ]);
   const [selectedPet, setSelectedPet] = useState<Pet | null>(null);
+  const [email, setEmail] = useState<string>('');
+  const [monthlyFee, setMonthlyFee] = useState<string>('');
+  const [message, setMessage] =useState<string>('');
+
   return {
     petsList,
     selectedPet,
-    setSelectedPet
+    setSelectedPet,
+    email,
+    setEmail,
+    monthlyFee,
+    setMonthlyFee,
+    message,
+    setMessage
   };
 }
