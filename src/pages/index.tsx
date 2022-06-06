@@ -1,4 +1,5 @@
 import type { NextPage } from 'next'
+import { Button, Dialog, DialogActions, Grid, TextField } from '@mui/material';
 import { PetsList } from '../ui/components/PetsList/PetsList'
 import { Title } from '../ui/components/Title/Title'
 
@@ -33,6 +34,21 @@ const Home: NextPage = () => {
           },
         ]}
       />
+
+      <Dialog open={true} fullWidth PaperProps={{sx: {p: 5}}}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <TextField label="E-mail" type="text" fullWidth />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField label="Quantia por mês" type="number" fullWidth />
+          </Grid>
+        </Grid>
+        <DialogActions sx={{mt: 5}}>
+          <Button>Cancelar</Button>
+          <Button variant="contained">Confirmar</Button>
+        </DialogActions>
+      </Dialog>
     </>
   );
 }

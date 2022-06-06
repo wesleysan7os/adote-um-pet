@@ -1,4 +1,3 @@
-import { ThemeContext } from "@emotion/react";
 import { styled, Box } from "@mui/material";
 
 export const HeaderContainer = styled('header')`
