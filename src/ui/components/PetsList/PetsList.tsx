@@ -12,9 +12,10 @@ import { TextService } from '../../../data/services/TextService';
 
 interface PetsListProps {
   pets: Pet[];
+  onSelect: (pet: Pet) => void;
 }
 
-export function PetsList({ pets }: PetsListProps) {
+export function PetsList({ pets, onSelect }: PetsListProps) {
   const maxSize = 250;
   
   return (
@@ -30,6 +31,7 @@ export function PetsList({ pets }: PetsListProps) {
             <Button 
               fullWidth
               variant='contained'
+              onClick={() => onSelect(pet)}
             >
               Adote {pet.name}
             </Button>
