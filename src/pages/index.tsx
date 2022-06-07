@@ -15,7 +15,8 @@ const Home: NextPage = () => {
     monthlyFee,
     setMonthlyFee,
     message,
-    setMessage
+    setMessage,
+    adopt
   } = useIndex();
 
   return (
