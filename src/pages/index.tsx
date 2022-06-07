@@ -59,7 +59,7 @@ const Home: NextPage = () => {
         </Grid>
         <DialogActions sx={{ mt: 5 }}>
           <Button onClick={() => setSelectedPet(null)}>Cancelar</Button>
-          <Button variant="contained">Confirmar</Button>
+          <Button onClick={() => adopt()} variant="contained">Confirmar</Button>
         </DialogActions>
       </Dialog>
 

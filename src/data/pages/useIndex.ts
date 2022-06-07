@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AxiosError } from "axios";
 
 import { Pet } from "../@types/Pet";
 import { ApiService } from "../services/ApiService";
@@ -35,7 +36,30 @@ export function useIndex() {
       })
   }, []);
 
-  function adopt(){}
+  function adopt(){
+    if (!!selectedPet) {
+      if (validateAdoptionData()) {
+        ApiService.post('/adocoes', {
+          pet_id: selectedPet.id,
+          email: email,
+          valor: monthlyFee
+        })
+          .then(() => {
+            setSelectedPet(null);
+            setMessage('Pet adotado com sucesso!')
+          })
+          .catch((error: AxiosError) => {
+            setMessage(error.response?.data.message);
+          })
+      } else {
+        setMessage('Preencha todos os campos corretamente!');
+      }
+    }
+  }
+
+  function validateAdoptionData(): boolean {
+    return email.length > 0 && monthlyFee.length > 0;
+  }
 
   return {
     petsList,
