@@ -36,6 +36,12 @@ export function useIndex() {
       })
   }, []);
 
+  useEffect(() => {
+    if (selectedPet === null) {
+      cleanFormInputs();
+    }
+  }, [selectedPet])
+
   function adopt(){
     if (!!selectedPet) {
       if (validateAdoptionData()) {
@@ -46,7 +52,7 @@ export function useIndex() {
         })
           .then(() => {
             setSelectedPet(null);
-            setMessage('Pet adotado com sucesso!')
+            setMessage('Pet adotado com sucesso!');
           })
           .catch((error: AxiosError) => {
             setMessage(error.response?.data.message);
@@ -59,6 +65,11 @@ export function useIndex() {
 
   function validateAdoptionData(): boolean {
     return email.length > 0 && monthlyFee.length > 0;
+  }
+
+  function cleanFormInputs() {
+    setEmail('');
+    setMonthlyFee('');
   }
 
   return {
