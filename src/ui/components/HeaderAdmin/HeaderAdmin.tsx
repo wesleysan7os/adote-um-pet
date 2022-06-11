@@ -10,10 +10,10 @@ export function HeaderAdmin() {
       <div>
         <Logo src={"/images/logo.svg"} alt={"Adote um Pet"} />
         <HeaderLinks>
-          <Link component={NextLink} href={"/pets/cadastro"}>
+          <NextLink href={"/pets/cadastro"}>
             <a>Cadastrar Pet</a>
-          </Link>
-          <Link component={NextLink} href={"/pets/relatorio"}>
+          </NextLink>
+          <NextLink href={"/pets/relatorio"}>
             <a>
               Relatório{' '} 
               <Box
@@ -23,7 +23,7 @@ export function HeaderAdmin() {
                 de Adoção
               </Box>
             </a>
-          </Link>
+          </NextLink>
         </HeaderLinks>
       </div>
     </HeaderContainer>
